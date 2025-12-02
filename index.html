@@ -1732,6 +1732,9 @@
             <input type="hidden" name="_subject" value="New Order - AJ Kitchen" />
             <input type="hidden" name="_redirect" id="redirectField" />
             <textarea name="message" id="messageField" style="display:none"></textarea>
+			  <form>  
+               <! -- h-captcha -->
+             <div class="h-captcha" data-captcha="true"></div>
             <div class="form-header">
               <i class="fas fa-user-circle"></i>
               <h3>Delivery Information</h3>
@@ -2095,6 +2098,21 @@
   }
 </script>
 
+
+	<script>
+const form = document.getElementById('YOUR_FORM_ID');
+
+form.addEventListener('submit', function(e) {
+
+    const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+
+    if (!hCaptcha) {
+        e.preventDefault();
+        alert("Please fill out captcha field")
+        return
+    }
+});
+</script>
   
 </body>
 
